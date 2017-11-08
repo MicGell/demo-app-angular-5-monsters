@@ -82,8 +82,8 @@
 
     .mobile-main-nav {
       flex-direction: column;
-      background-color: rgba(115, 0, 77, 0.22);
-      border-top: 1px solid rgba(115, 0, 77, 0.22);
+      background-color: $primary-color-darker-transparent;
+      border-top: 1px solid $primary-color-darker-transparent;
     
       .menu-item {
         width: 100%;
@@ -131,7 +131,7 @@
     position: absolute;
     height: 9px;
     width: 100%;
-    background: #af0075;
+    background: $primary-color;
     border-radius: 9px;
     opacity: 1;
     left: 0;
