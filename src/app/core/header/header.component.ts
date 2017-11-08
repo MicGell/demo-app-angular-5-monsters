@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, HostListener } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
 @Component({
@@ -8,8 +8,10 @@ import { Router, NavigationStart } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('menuContainer') menuDiv;
   viewMenu = false;
   mobileMode = false;
+  stickyMenu = false;
 
   constructor(private route: Router) { }
 
@@ -33,6 +35,16 @@ export class HeaderComponent implements OnInit {
 
   checkActiveMenu() {
     return this.viewMenu === true ? 'active' : 'inactive';
+  }
+
+  @HostListener('window:scroll')
+  handleScrollEvent() {
+    const heightMenu = this.menuDiv.nativeElement.clientHeight;
+    if (window.pageYOffset > heightMenu) {
+      this.stickyMenu = true;
+    } else {
+      this.stickyMenu = false;
+    }
   }
 
 }

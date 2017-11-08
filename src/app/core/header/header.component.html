@@ -1,5 +1,6 @@
 <div class="main-container-menu" 
-    (window:resize)="checkMobileMode($event.target.innerWidth)">
+    (window:resize)="checkMobileMode($event.target.innerWidth)"
+    #menuContainer>
   <div class="mobile-toggle-btn">
     <div id="nav-icon"
         [ngClass]="{'open': viewMenu}"

@@ -78,36 +78,37 @@
           }
         }
       }
+    }
 
-
+    .mobile-main-nav {
+      flex-direction: column;
+      background-color: rgba(115, 0, 77, 0.22);
+      border-top: 1px solid rgba(115, 0, 77, 0.22);
+    
+      >div {
+        width: 100%;
+        @extend .flexCenter;
+        margin: 0;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+      }
+    
+      .navigate-contrainer {
+        justify-content: space-around;
+        >a {
+          margin: 0;
+        }
+      }
     }
 }
 
-.mobile-main-nav {
-  flex-direction: column;
-  background-color: rgba(115, 0, 77, 0.22);
-  border-top: 1px solid rgba(115, 0, 77, 0.22);
 
-  >div {
-    width: 100%;
-    flex: none;
-    margin: 0;
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  }
-
-  .navigate-contrainer {
-    justify-content: space-around;
-    >a {
-      margin: 0;
-    }
-  }
-}
 
 .mobile-toggle-btn{
   display: none;
   height: 70px;
   width: 100%;
-  @extend .flexCenter;
+  justify-content: flex-end;
+  align-items: center;
   padding: 20px;
 }
 
