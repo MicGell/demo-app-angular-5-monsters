@@ -1,5 +1,17 @@
-<div class="main-container-menu">
-  <nav class="menu">
+<div class="main-container-menu" 
+    (window:resize)="checkMobileMode($event.target.innerWidth)">
+  <div class="mobile-toggle-btn">
+    <div id="nav-icon"
+        [ngClass]="{'open': viewMenu}"
+        (click)="viewMenu = !viewMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="menu" 
+      [ngClass]="{'mobile-main-nav': viewMenu}" 
+      *ngIf="viewMenu === mobileMode">
     <div class="logo-container">
       <a [routerLink]="['/']"><img src="assets/images/logo.png" alt="logo"></a>  
     </div>
@@ -11,7 +23,8 @@
       <button type="button">Create monster</button>
     </div>
     <div class="user-container">
-      <div class="avatar" [ngStyle]="{'background-image': 'url(assets/images/avatar.png)'}"></div>
+      <div class="avatar" 
+          [ngStyle]="{'background-image': 'url(assets/images/avatar.png)'}"></div>
       <div class="user-container-text">
         <a [routerLink]="['/']">Robert Łabuś</a>
         <a [routerLink]="['/']">Game Master</a>
