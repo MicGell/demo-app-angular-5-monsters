@@ -13,10 +13,10 @@
                     <div>Age: {{monster.age}}</div>
                 </div>
             </div>
-            <div class="details-containers" id="strenght">
+            <div class="details-containers strenght-container" >
                 <div class="progress"><div class="active-progress" [ngStyle]="{'width': monster.strenght+'%'}"></div></div>
                 <div class="data-text">
-                    <div>{{monster.strenght}}/100</div>
+                    <div id="strenght">{{monster.strenght}}/100</div>
                     <b>Strenght</b>
                 </div>
                 <div class="optionsButtons">

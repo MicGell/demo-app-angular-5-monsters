@@ -26,3 +26,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.flexDirectionRow {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.flexDirectionColumn {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
