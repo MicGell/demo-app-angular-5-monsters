@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataStorageService } from './shared/data-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  constructor(private dataStorageService: DataStorageService) {
+    this.dataStorageService.getMonsters();
+  }
+
 }

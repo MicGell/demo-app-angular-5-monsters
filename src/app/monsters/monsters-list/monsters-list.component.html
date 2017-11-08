@@ -1,3 +1,40 @@
-<p>
-  monsters-list works!
-</p>
+<div class="main-container" 
+    *ngIf="monsterExist else nonExist">
+    <h1>{{title}}</h1>
+
+    <ul class="list-mosters">
+        <li class="monster-details" 
+            *ngFor="let monster of monsters; let i = index" 
+            [attr.id]="monster.id">
+            <div class="details-containers">
+                <div class="img" [ngStyle]="{'background-image': 'url(assets/images/monster.png)'}"></div>
+                <div class="data-text">
+                    <b>{{monster.name}}</b>
+                    <div>Age: {{monster.age}}</div>
+                </div>
+            </div>
+            <div class="details-containers" id="strenght">
+                <div class="progress"><div class="active-progress" [ngStyle]="{'width': monster.strenght+'%'}"></div></div>
+                <div class="data-text">
+                    <div>{{monster.strenght}}/100</div>
+                    <b>Strenght</b>
+                </div>
+                <div class="optionsButtons">
+                    <button (click)="remove(i)">Remove</button>
+                    <button (click)="goEdit(monster.id)">Edit</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div *ngIf="(!monsters || monsters.length === 0) && loadedDataBoolean">
+        <p>So far there is no {{monstersType}} here. You can create some monsters.</p>
+    </div>
+    <div *ngIf="!loadedDataBoolean">
+        <p>Loading...</p>
+    </div>
+
+</div>
+<ng-template class="main-container" #nonExist>
+    <h1>Wrong URL</h1>
+</ng-template>
