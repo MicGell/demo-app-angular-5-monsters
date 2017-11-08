@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild, HostListener } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
+import { toggleMenuTrigger } from './animation';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    toggleMenuTrigger
+  ]
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('menuContainer') menuDiv;

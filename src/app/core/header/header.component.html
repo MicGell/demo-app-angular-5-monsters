@@ -1,4 +1,5 @@
-<div class="main-container-menu" 
+<div class="main-container-menu"
+    [@menuState]="checkActiveMenu()"
     (window:resize)="checkMobileMode($event.target.innerWidth)"
     #menuContainer>
   <div class="mobile-toggle-btn">
@@ -13,17 +14,17 @@
   <nav class="menu" 
       [ngClass]="{'mobile-main-nav': viewMenu}" 
       *ngIf="viewMenu === mobileMode">
-    <div class="logo-container">
+    <div class="logo-container menu-item">
       <a [routerLink]="['/']"><img src="assets/images/logo.png" alt="logo"></a>  
     </div>
-    <div class="navigate-contrainer">
+    <div class="navigate-contrainer menu-item">
       <a [routerLink]="['/monsters']">Gnomes</a>
       <a [routerLink]="['/monsters']">Trolls</a>
     </div>
-    <div class="actions-container ">
+    <div class="actions-container menu-item">
       <button type="button">Create monster</button>
     </div>
-    <div class="user-container">
+    <div class="user-container menu-item">
       <div class="avatar" 
           [ngStyle]="{'background-image': 'url(assets/images/avatar.png)'}"></div>
       <div class="user-container-text">

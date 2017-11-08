@@ -6,8 +6,8 @@ html {
   color: $main-color-text;
 }
 *, *:before, *:after {
-  // box-sizing: inherit; 
-  box-sizing: border-box;
+  box-sizing: inherit; 
+  // box-sizing: border-box;
 }
 body {
   margin: 0;

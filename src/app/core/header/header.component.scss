@@ -18,7 +18,7 @@
       justify-content: space-between;
       align-items: center;
 
-      >div {
+      .menu-item {
         height: 70px;
         margin: 0 5px; 
         @extend .flex;
@@ -85,10 +85,10 @@
       background-color: rgba(115, 0, 77, 0.22);
       border-top: 1px solid rgba(115, 0, 77, 0.22);
     
-      >div {
+      .menu-item {
         width: 100%;
-        @extend .flexCenter;
         margin: 0;
+        flex: none;
         box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
       }
     
