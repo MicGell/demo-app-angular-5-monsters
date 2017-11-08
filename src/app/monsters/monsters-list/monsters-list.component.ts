@@ -4,12 +4,16 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Monster } from '../monster.model';
 import { MonstersService } from '../monsters.service';
+import { enterLeaveTrigger } from './animations';
 
 @Component({
   selector: 'app-monsters-list',
   templateUrl: './monsters-list.component.html',
   styleUrls: ['./monsters-list.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    enterLeaveTrigger
+  ]
 })
 export class MonstersListComponent implements OnInit, OnDestroy {
   monsters: Monster[] = [];

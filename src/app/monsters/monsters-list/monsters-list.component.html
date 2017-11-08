@@ -2,19 +2,24 @@
     *ngIf="monsterExist else nonExist">
     <h1>{{title}}</h1>
 
-    <ul class="list-mosters">
+    <ul class="list-mosters"
+        [@listState]="monsters?.length">
         <li class="monster-details" 
             *ngFor="let monster of monsters; let i = index" 
             [attr.id]="monster.id">
             <div class="details-containers">
-                <div class="img" [ngStyle]="{'background-image': 'url(assets/images/monster.png)'}"></div>
+                <div class="img" 
+                    [ngStyle]="{'background-image': 'url(assets/images/monster.png)'}"></div>
                 <div class="data-text">
                     <b>{{monster.name}}</b>
                     <div>Age: {{monster.age}}</div>
                 </div>
             </div>
             <div class="details-containers strenght-container" >
-                <div class="progress"><div class="active-progress" [ngStyle]="{'width': monster.strenght+'%'}"></div></div>
+                <div class="progress">
+                    <div class="active-progress" 
+                        [ngStyle]="{'width': monster.strenght+'%'}"></div>
+                </div>
                 <div class="data-text">
                     <div id="strenght">{{monster.strenght}}/100</div>
                     <b>Strenght</b>
