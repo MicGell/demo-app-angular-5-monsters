@@ -120,5 +120,17 @@ export class MonstersService {
     }
   }
 
+  removeMonster(monsterIndex: number) {
+    const realIndex = monsterIndex + (this.numberMonstersOnPage * this.currentPageList);
+    const startIndexForPage = this.currentPageList * this.numberMonstersOnPage;
+    const endIndexForPage = startIndexForPage + this.numberMonstersOnPage - 1;
+    this.selectedMonsters.monsters.splice(realIndex, 1);
+    this.updateNumberOfPages(this.selectedMonsters);
+    if (endIndexForPage !== this.selectedMonsters.monsters.length) {
+      return this.selectedMonsters.monsters[endIndexForPage - 1];
+    } else {
+      return false;
+    }
+  }
 
 }

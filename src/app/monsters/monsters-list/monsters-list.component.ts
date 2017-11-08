@@ -27,7 +27,6 @@ export class MonstersListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('tes');
     const monstersData = this.monstersService.monstersSelectedChanged
       .subscribe((monsters: Monster[]) => {
           this.monsters = monsters;
@@ -62,6 +61,17 @@ export class MonstersListComponent implements OnInit, OnDestroy {
         setTimeout(() => {
           this.monstersService.getMonsters();
         }, 5);
+    }
+  }
+
+  remove(monsterIndex: number) {
+    this.monsters.splice(monsterIndex, 1);
+    const newMosnter = this.monstersService.removeMonster(monsterIndex);
+    this.maxPages = this.monstersService.getNumberOfPages();
+    if (newMosnter) {
+      setTimeout(() => {
+        this.monsters.push(newMosnter);
+      }, 200);
     }
   }
 
