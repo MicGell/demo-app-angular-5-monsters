@@ -1,0 +1,84 @@
+@import '~app/shared/scss-global-style/flexbox';
+@import '~app/shared/scss-global-style/styles';
+@import '~app/shared/scss-global-style/variables';
+
+.main-container-menu {
+  display: block;
+  z-index: 10;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  box-shadow: 0px 0px 15px rgba(197, 189, 189, 0.32);
+
+    .menu{
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      @extend .flex;
+      justify-content: space-between;
+      align-items: center;
+
+      >div {
+        height: 70px;
+        margin: 0 5px; 
+        @extend .flex;
+        @extend .flexCenter;
+        flex: 1;
+      }
+
+      .navigate-contrainer {
+        justify-content: flex-start;
+        flex: 3;
+        >a {
+          @extend .flex;
+          margin-right: 6vw;
+          font-weight: 500;
+        }
+      }
+
+      .actions-container {
+        >button {
+          @extend .button;
+        }
+      }
+
+      .logo-container {
+        flex: 0;
+        margin-right: 10vw;
+
+        >img {
+          cursor: pointer;
+        }
+      }
+
+      .user-container {
+        .avatar {
+          cursor: pointer;
+          margin-right: 5px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-size: cover;
+          background-position: center;
+          &:hover{
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.82);
+            border: 1px solid rgba(163, 161, 161, 0.75);
+          }
+        }
+        .user-container-text{
+          padding: 0 5px;
+          min-width: 120px;
+          >a{
+            cursor: pointer;
+            display: block;
+            font-size: 14px;
+            &:first-child{
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+
+    }
+}

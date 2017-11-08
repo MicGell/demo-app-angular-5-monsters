@@ -1,0 +1,27 @@
+@import '~app/shared/scss-global-style/variables';
+
+html {
+  box-sizing: border-box;
+  font-family: 'Work Sans', sans-serif;
+  color: $main-color-text;
+}
+*, *:before, *:after {
+  // box-sizing: inherit; 
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: $main-background-color;
+}
+
+a {
+  color: $main-color-text;
+  text-decoration: none;
+}
+a:hover {
+  color: $primary-color;
+}
+button { border: none};
+button:focus {outline:0;}
+
+

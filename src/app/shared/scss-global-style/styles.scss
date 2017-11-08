@@ -1,0 +1,27 @@
+@import '~app/shared/scss-global-style/variables';
+
+.main-container {
+  margin: 40px auto 100px auto;
+  padding: 20px;
+  max-width: 1180px;
+  display: block;
+}
+
+.button {
+  font-weight: 500;
+  font-size: 16px;
+  width: 150px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.82);
+  color: white;
+  background-color: $primary-color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color-darker;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.82),
+                inset 1px 1px 8px rgba(0, 0, 0, 0.3),
+                inset -1px -1px 8px rgba(0, 0, 0, 0.3);
+  }
+}

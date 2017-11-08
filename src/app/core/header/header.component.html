@@ -1,3 +1,21 @@
-<p>
-  header works!
-</p>
+<div class="main-container-menu">
+  <nav class="menu">
+    <div class="logo-container">
+      <a [routerLink]="['/']"><img src="assets/images/logo.png" alt="logo"></a>  
+    </div>
+    <div class="navigate-contrainer">
+      <a [routerLink]="['/monsters']">Gnomes</a>
+      <a [routerLink]="['/monsters']">Trolls</a>
+    </div>
+    <div class="actions-container ">
+      <button type="button">Create monster</button>
+    </div>
+    <div class="user-container">
+      <div class="avatar" [ngStyle]="{'background-image': 'url(assets/images/avatar.png)'}"></div>
+      <div class="user-container-text">
+        <a [routerLink]="['/']">Robert Łabuś</a>
+        <a [routerLink]="['/']">Game Master</a>
+      </div>
+    </div>
+  </nav>
+</div>
