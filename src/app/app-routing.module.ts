@@ -5,7 +5,7 @@ import { MonstersComponent } from './monsters/monsters.component';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
-  { path: 'monsters', component: MonstersComponent}
+  { path: 'monsters', loadChildren: './monsters/monsters.module#MonstersModule' }
 ];
 
 @NgModule({

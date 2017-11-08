@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { HomeComponent } from './core/home/home.component';
-import { MonstersComponent } from './monsters/monsters.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -12,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    MonstersComponent
   ],
   imports: [
     BrowserModule,
