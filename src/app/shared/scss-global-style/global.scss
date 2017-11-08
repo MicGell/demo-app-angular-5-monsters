@@ -12,6 +12,7 @@ html {
 body {
   margin: 0;
   background-color: $main-background-color;
+  overflow-y: scroll;
 }
 
 a {

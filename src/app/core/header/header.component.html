@@ -22,7 +22,8 @@
       <a [routerLink]="['/monsters/trolls/page/1']">Trolls</a>
     </div>
     <div class="actions-container menu-item">
-      <button type="button">Create monster</button>
+      <button type="button"
+              (click)="goLink('/monsters/new')">Create monster</button>
     </div>
     <div class="user-container menu-item">
       <div class="avatar" 

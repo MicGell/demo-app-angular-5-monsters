@@ -52,4 +52,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  goLink(link) {
+    this.route.navigate([link]);
+  }
+
 }

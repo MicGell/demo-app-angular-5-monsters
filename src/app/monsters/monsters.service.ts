@@ -6,7 +6,8 @@ import { Monster } from './monster.model';
 
 interface MonsterType {
   type: string;
-  hrefData: string;
+  hrefData: string;  [x: string]: any;
+
   monsters: Monster[];
   lastId: number;
   numberOfPages: number;
@@ -17,6 +18,7 @@ interface MonsterType {
 export class MonstersService {
   monstersSelectedChanged = new Subject<Monster[]>();
   loadedDataChanged = new Subject<boolean>();
+  monsterEditedChanged = new Subject<Monster>();
   private numberMonstersOnPage = 15;
   private correctUrl = false;
   private currentPageList: number;
@@ -59,6 +61,10 @@ export class MonstersService {
     return this.monstersArray;
   }
 
+  getMonstersTypesNames() {
+    return this.monsterTypesNames;
+  }
+
   updateService(newMonsters: Monster[], index: number, monsterType: string) {
     this.monstersArray[index].monsters = newMonsters;
     this.monstersArray[index].lastId = newMonsters.length - 1;
@@ -68,8 +74,9 @@ export class MonstersService {
     if (this.currentPageList !== undefined && monsterType === this.selectedMonsters.type) {
       this.loadedDataChanged.next(true);
       this.getMonsters();
+    } else if (this.selectedMonsterEdit) {
+      this.activeMonsterToEdit();
     }
-
   }
 
   checkOrSelectMonsterType(typeToCheck: string) {
@@ -130,6 +137,45 @@ export class MonstersService {
       return this.selectedMonsters.monsters[endIndexForPage - 1];
     } else {
       return false;
+    }
+  }
+
+  addMonster(newMonster: Monster) {
+    const monstersFound = this.monstersArray.find( (monsters) => monsters.type === newMonster.type);
+    monstersFound.lastId++;
+    newMonster.id = monstersFound.lastId;
+    monstersFound.monsters.push(newMonster);
+    this.updateNumberOfPages(monstersFound);
+  }
+
+  updateMonster(newMonster: Monster) {
+    if (this.selectedMonsterEdit) {
+      const type = this.selectedMonsterEdit.indexType;
+      const monster = this.selectedMonsterEdit.indexMonster;
+      this.monstersArray[type].monsters[monster] = newMonster;
+    }
+  }
+
+  sendMonsterToEdit(monsterId: number, monsterType: string) {
+    this.selectedMonsterEdit = {
+      id: monsterId,
+      indexMonster: -1,
+      indexType: -1,
+      type: monsterType
+    };
+    this.activeMonsterToEdit();
+  }
+
+  activeMonsterToEdit() {
+    if (this.selectedMonsterEdit) {
+      const monsterEdit = this.selectedMonsterEdit;
+      const monstersFound = this.monstersArray.find( (monsters) => monsters.type === monsterEdit.type);
+      const monsterFound = monstersFound.monsters.find( monster => monster.id === monsterEdit.id);
+
+      this.selectedMonsterEdit.indexType = this.monstersArray.indexOf(monstersFound);
+      this.selectedMonsterEdit.indexMonster = monstersFound.monsters.indexOf(monsterFound);
+
+      this.monsterEditedChanged.next(monsterFound);
     }
   }
 

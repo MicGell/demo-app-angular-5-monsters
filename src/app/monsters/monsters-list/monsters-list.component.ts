@@ -26,8 +26,8 @@ export class MonstersListComponent implements OnInit, OnDestroy {
   loadedDataBoolean = false;
 
   constructor(private monstersService: MonstersService,
-    private route: ActivatedRoute,
-    private router: Router) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -77,6 +77,10 @@ export class MonstersListComponent implements OnInit, OnDestroy {
         this.monsters.push(newMosnter);
       }, 200);
     }
+  }
+
+  goEdit(id: number) {
+    this.router.navigate(['/monsters/' + this.monstersType + '/' + id + '/edit', { linkBack: window.location.href}]);
   }
 
   ngOnDestroy() {
