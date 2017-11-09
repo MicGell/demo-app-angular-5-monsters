@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm install -g @angular/cli & npm install & ng serve",
+    "build": "npm install -g @angular/cli & npm install & ng build --prod --aot --base-href /my-app/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
