@@ -1,89 +1,64 @@
-.main-container{
+@import '~app/shared/scss-global-style/styles';
+@import '~app/shared/scss-global-style/flex';
+
+.edit-container{
   max-width: 900px; 
-}
+  h1{
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  form {
+    background-color: white;
+    border: 1px solid rgb(247, 246, 246);
+    box-shadow: 0px 0px 5px rgba(202, 198, 198, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    @extend .marginCenter;
 
-input.ng-invalid.ng-touched{
-  box-shadow: 0px 0px 5px red;
-  background-color: rgba(197, 0, 0, 0.521);
-}
+    .buttonsForm{
+      @extend .flex;
+      @extend .flexCenter;
+      @extend .flexDirectionRow;
+      justify-content: space-around;
+      button{
+        @extend .button;
+        margin-top: 15px;
+      }
+    }
 
-h1{
-  text-align: center;
-  margin-bottom: 35px;
-}
-form {
-  background-color: white;
-  border: 1px solid rgb(247, 246, 246);
-  box-shadow: 0px 0px 5px rgba(202, 198, 198, 0.5);
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 500px;
-}
+    >div {
+      @extend .marginCenter;
+      width: 100%;
+      margin: 32px 0;
+      input {
+        font-size: 14px;
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 7px;
+        border: 1px solid #af0075;
+        box-shadow: 0px 0px 5px rgba(202, 198, 198, 0.5);
+        .ng-invalid.ng-touched{
+          box-shadow: 0px 0px 5px red;
+          background-color: rgba(197, 0, 0, 0.521);
+        }
+      }
+      label {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      select {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 7px 10px;
+        border-radius: 6px;
+        border: 1px solid #af0075;
+        box-shadow: 0px 0px 5px rgba(202, 198, 198, 0.5);
+      }
 
-form, form > div  {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-form > div {
-  width: 100%;
-  margin: 32px 0;
-}
-
-label {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-input {
-  font-size: 14px;
-  font-weight: 500;
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  border-radius: 7px;
-  border: 1px solid #af0075;
-  box-shadow: 0px 0px 5px rgba(202, 198, 198, 0.5);
-}
-
-select {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 7px 10px;
-  border-radius: 6px;
-  border: 1px solid #af0075;
-  box-shadow: 0px 0px 5px rgba(202, 198, 198, 0.5);
-}
-
-
-.buttonsForm{
-  justify-content: space-around;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.buttonsForm button{
-  font-weight: 500;
-  font-size: 16px;
-  width: 150px;
-  margin-top: 15px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: none;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.82);
-  color: white;
-  background-color: #af0075;
-  cursor: pointer;
-}
-
-.buttonsForm button:hover{
-  background-color: #9e006f;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.82),
-              inset 1px 1px 8px rgba(0, 0, 0, 0.3),
-              inset -1px -1px 8px rgba(0, 0, 0, 0.3);
-}
-
-.buttonsForm button:disabled{
-  background-color: gray;
+    }
+  }
 }

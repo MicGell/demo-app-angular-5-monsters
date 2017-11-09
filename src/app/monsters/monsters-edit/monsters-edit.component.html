@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container edit-container">
     <h1>{{pageData.title}}</h1>
     <form [formGroup]="monsterForm" (ngSubmit)="onSubmit()">
       <div>
@@ -33,7 +33,7 @@
           <option *ngFor="let typeMonster of monstersTypesNames" [value]="typeMonster">{{typeMonster}}</option>
         </select>
       </div>
-      <div class="flex-center buttonsForm">
+      <div class="buttonsForm">
         <button 
           type="submit" 
           class=""
