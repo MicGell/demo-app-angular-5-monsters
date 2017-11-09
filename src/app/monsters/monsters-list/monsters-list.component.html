@@ -1,7 +1,19 @@
-<div class="main-container" 
+<div class="main-container monsters-list" 
     *ngIf="monsterExist else nonExist">
     <h1>{{title}}</h1>
-
+    <ul class="pages" *ngIf="maxPages">
+        <li *ngIf="page > 1"><a [routerLink]="createLink(page-1)">Prev</a></li>
+        <li *ngIf="page > 1"><a [routerLink]="createLink(1)">1</a></li>
+        <span *ngIf="page > 1">...</span>
+        <li *ngIf="viewPrevPages(2)"><a [routerLink]="createLink(page-2)">{{page-2}}</a></li>
+        <li *ngIf="viewPrevPages(1)"><a [routerLink]="createLink(page-1)">{{page-1}}</a></li>
+        <li><a class="active">{{page}}</a></li>
+        <li *ngIf="viewNextPages(1)"><a [routerLink]="createLink(page+1)">{{page+1}}</a></li>
+        <li *ngIf="viewNextPages(2)"><a [routerLink]="createLink(page+2)">{{page+2}}</a></li>
+        <span *ngIf="page !== maxPages">...</span>
+        <li *ngIf="page !== maxPages"><a [routerLink]="createLink(maxPages)">{{maxPages}}</a></li>
+        <li *ngIf="page !== maxPages"><a [routerLink]="createLink(page+1)">Next</a></li>
+    </ul>
     <ul class="list-mosters"
         [@listState]="monsters?.length">
         <li class="monster-details" 

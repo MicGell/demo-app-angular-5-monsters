@@ -83,6 +83,17 @@ export class MonstersListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/monsters/' + this.monstersType + '/' + id + '/edit', { linkBack: window.location.href}]);
   }
 
+  viewNextPages(numberNext: number) {
+    return this.maxPages > numberNext + this.page;
+  }
+
+  viewPrevPages(numberPrev: number) {
+    return 1 < this.page - numberPrev;
+  }
+  createLink(numberPage: number) {
+    return '/monsters/' + this.monstersType + '/page/' + numberPage;
+  }
+
   ngOnDestroy() {
     this.subscriptions.forEach( subscription => subscription.unsubscribe());
   }

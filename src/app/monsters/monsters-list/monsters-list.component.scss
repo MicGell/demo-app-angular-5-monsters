@@ -2,8 +2,33 @@
 @import '~app/shared/scss-global-style/styles';
 @import '~app/shared/scss-global-style/variables';
 
-h1{
-  font-weight: 500;
+.monsters-list {
+  h1{
+    font-weight: 500;
+  }
+  .pages {
+    @extend .flex;
+    @extend .flexCenter;
+    @extend .flexWrap;
+    width: 100%;
+    >li {
+      list-style: none;
+      margin: 10px 2px;
+      cursor: pointer;
+      a{
+        padding: 4px 12px;
+        background-color: white;
+        border: 1px solid #e2dcdc;
+        border-radius: 7px;
+      }
+      a.active {
+        background-color: $primary-color;
+        color: white;
+        border: 1px solid $primary-color-darker;
+      }
+    }
+  }
+
 }
 
 .list-mosters {
