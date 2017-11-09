@@ -103,7 +103,8 @@ export class MonstersEditComponent implements OnInit, OnDestroy {
     } else {
       const monstersType = this.monstersTypesNames.find( name => name === this.monsterForm.value['type']) ;
       if (monstersType) {
-        this.router.navigate(['/monsters/' + monstersType + '/page/0']);
+        const lastPage = this.monstersService.getNumberOfPages();
+        this.router.navigate(['/monsters/' + monstersType + '/page/' + lastPage]);
       } else {
         this.router.navigate([linkGo]);
       }
